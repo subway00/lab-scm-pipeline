@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent { docker { image 'maven:3.8.4-openjdk-11-slim' } }
     stages {
-        stage('Stage 1') {
+        stage('build') {
             steps {
-                echo 'Hello world!'
-                }
+                sh 'mvn --version'
             }
         }
+    }
 }
